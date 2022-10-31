@@ -1,4 +1,4 @@
-# math_game_b
+# math_fun
 
 A new Flutter project.
 
