@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:math_game_b/login.dart';
+import 'package:math_game_b/Screens/login_screen.dart';
 
 void main() {
   runApp(const MyApp());

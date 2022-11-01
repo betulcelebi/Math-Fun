@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/src/widgets/container.dart';
 import 'package:flutter/src/widgets/framework.dart';
+import 'package:math_game_b/Screens/menu_screen.dart';
 
 class LoginScreen extends StatefulWidget {
   const LoginScreen({super.key});
@@ -42,35 +43,45 @@ class _LoginScreenState extends State<LoginScreen> {
                   scale: 0.8,
                 ),
               ),
-              Container(
-                alignment: Alignment.center,
-                margin: EdgeInsets.only(top: 580, left: 130),
-                width: 130,
-                height: 55,
-                decoration: BoxDecoration(
-                    border: Border.all(
-                        color: Color(0xff98DA42),
-                        style: BorderStyle.solid,
-                        strokeAlign: StrokeAlign.inside),
-                    color: Color(0xff79CA01),
-                    borderRadius: BorderRadius.circular(15),
-                    boxShadow: [
-                      BoxShadow(
-                          color: Color.fromARGB(255, 98, 163, 1),
-                          blurRadius: 8.0,
-                          spreadRadius: 5.0,
-                          offset: Offset(
-                            1.0,
-                            3.0,
-                          ),
-                          blurStyle: BlurStyle.inner)
-                    ]),
-                child: Text(
-                  "Play",
-                  style: TextStyle(
-                      color: Colors.white,
-                      fontWeight: FontWeight.bold,
-                      fontSize: 21),
+              GestureDetector(
+                onTap: () {
+                  Navigator.push<void>(
+                    context,
+                    MaterialPageRoute<void>(
+                      builder: (BuildContext context) => const MenuScreen(),
+                    ),
+                  );
+                },
+                child: Container(
+                  alignment: Alignment.center,
+                  margin: EdgeInsets.only(top: 580, left: 130),
+                  width: 130,
+                  height: 55,
+                  decoration: BoxDecoration(
+                      border: Border.all(
+                          color: Color(0xff98DA42),
+                          style: BorderStyle.solid,
+                          strokeAlign: StrokeAlign.inside),
+                      color: Color(0xff79CA01),
+                      borderRadius: BorderRadius.circular(15),
+                      boxShadow: [
+                        BoxShadow(
+                            color: Color.fromARGB(255, 98, 163, 1),
+                            blurRadius: 8.0,
+                            spreadRadius: 5.0,
+                            offset: Offset(
+                              1.0,
+                              3.0,
+                            ),
+                            blurStyle: BlurStyle.inner)
+                      ]),
+                  child: Text(
+                    "Play",
+                    style: TextStyle(
+                        color: Colors.white,
+                        fontWeight: FontWeight.bold,
+                        fontSize: 21),
+                  ),
                 ),
               ),
               Container(
@@ -91,7 +102,7 @@ class _LoginScreenState extends State<LoginScreen> {
                   top: 680, left: 240, child: Image.asset("assets/potion.png")),
               Container(
                 alignment: Alignment.center,
-                margin: EdgeInsets.only(top: 645, left: 130),
+                margin: EdgeInsets.only(top: 650, left: 130),
                 width: 130,
                 height: 55,
                 decoration: BoxDecoration(
