@@ -154,57 +154,42 @@ class _MenuScreenState extends State<MenuScreen> {
               padding: EdgeInsets.all(0),
               shrinkWrap: true,
               itemBuilder: (context, index) {
-
-                return GestureDetector(
-                     onTap: index == 0
-                          ? () {
-                              Navigator.push<void>(
-                                context,
-                                MaterialPageRoute<void>(
-                                  builder: (BuildContext context) =>
-                                       const GameMenuScreen(),
-                                ),
-                              );
-                            }
-                          : () {
-                              null;
-                            },
-                  child: Container(
-                    margin: EdgeInsets.all(10),
-                    width: 100,
-                    height: 90,
-                    decoration: BoxDecoration(
-                        color: Color(0xff74C90F),
-                        borderRadius: BorderRadius.only(
-                            topLeft: Radius.zero,
-                            topRight: Radius.circular(15),
-                            bottomLeft: Radius.circular(15),
-                            bottomRight: Radius.circular(15)),
-                        boxShadow: [
-                          BoxShadow(
-                              color: Color.fromARGB(255, 23, 104, 25)
-                                  .withOpacity(0.7),
-                              blurRadius: 8.0,
-                              spreadRadius: 2.0,
-                              offset: Offset(
-                                1.0,
-                                4.0,
-                              ),
-                              blurStyle: BlurStyle.inner)
-                        ],
-                        border: Border.all(
-                            color: Color.fromARGB(255, 172, 233, 98),
-                            style: BorderStyle.solid,
-                            strokeAlign: StrokeAlign.inside,
-                            width: 2)),
-                    child: Row(
-                      children: [
-                        Container(
-                          alignment: Alignment.center,
-                          margin: EdgeInsets.only(left: 15),
-                          width: 70,
-                          height: 50,
-                          decoration: BoxDecoration(
+                return Container(
+                  margin: EdgeInsets.all(10),
+                  width: 100,
+                  height: 90,
+                  decoration: BoxDecoration(
+                      color: Color(0xff74C90F),
+                      borderRadius: BorderRadius.only(
+                          topLeft: Radius.zero,
+                          topRight: Radius.circular(15),
+                          bottomLeft: Radius.circular(15),
+                          bottomRight: Radius.circular(15)),
+                      boxShadow: [
+                        BoxShadow(
+                            color: Color.fromARGB(255, 23, 104, 25)
+                                .withOpacity(0.7),
+                            blurRadius: 8.0,
+                            spreadRadius: 2.0,
+                            offset: Offset(
+                              1.0,
+                              4.0,
+                            ),
+                            blurStyle: BlurStyle.inner)
+                      ],
+                      border: Border.all(
+                          color: Color.fromARGB(255, 172, 233, 98),
+                          style: BorderStyle.solid,
+                          strokeAlign: StrokeAlign.inside,
+                          width: 2)),
+                  child: Row(
+                    children: [
+                      Container(
+                        alignment: Alignment.center,
+                        margin: EdgeInsets.only(left: 15),
+                        width: 70,
+                        height: 50,
+                        decoration: BoxDecoration(
                             color: Color(0xff95DB42),
                             borderRadius: BorderRadius.only(
                                 topLeft: Radius.zero,
@@ -223,62 +208,82 @@ class _MenuScreenState extends State<MenuScreen> {
                                   ),
                                   blurStyle: BlurStyle.inner)
                             ],
-                             border: Border.all(
-                            color: Color.fromARGB(255, 172, 233, 98),
-                            style: BorderStyle.solid,
-                            strokeAlign: StrokeAlign.inside,
-                            width: 2)
-                          ),
-                          child: Image.asset(
-                            "assets/plus.png",
-                            color: Colors.white,
-                            width: 25,
-                          ),
+                            border: Border.all(
+                                color: Color.fromARGB(255, 172, 233, 98),
+                                style: BorderStyle.solid,
+                                strokeAlign: StrokeAlign.inside,
+                                width: 2)),
+                        child: Image.asset(
+                          "assets/plus.png",
+                          color: Colors.white,
+                          width: 25,
                         ),
-                        Container(
+                      ),
+                      GestureDetector(
+                        onTap: index == 0
+                            ? () {
+                                Navigator.push<void>(
+                                  context,
+                                  MaterialPageRoute<void>(
+                                    builder: (BuildContext context) =>
+                                        const GameMenuScreen(),
+                                  ),
+                                );
+                              }
+                            : () {
+                                null;
+                              },
+                        child: Container(
                           alignment: Alignment.center,
                           margin: EdgeInsets.only(left: 15),
                           width: 180,
                           height: 50,
                           decoration: BoxDecoration(
-                            color: Color(0xff95DB42),
-                            borderRadius: BorderRadius.only(
-                                topLeft: Radius.circular(15),
-                                topRight: Radius.circular(15),
-                                bottomLeft: Radius.circular(15),
-                                bottomRight: Radius.circular(15)),
-                            boxShadow: [
-                              BoxShadow(
-                                  color: Color.fromARGB(255, 23, 104, 25)
-                                      .withOpacity(0.7),
-                                  blurRadius: 8.0,
-                                  spreadRadius: 2.0,
-                                  offset: Offset(
-                                    1.0,
-                                    4.0,
-                                  ),
-                                  blurStyle: BlurStyle.inner)
-                            ], border: Border.all(
-                            color: Color.fromARGB(255, 172, 233, 98),
-                            style: BorderStyle.solid,
-                            strokeAlign: StrokeAlign.inside,
-                            width: 2)
-                          ),
-                          child: Text(gameList[index],style: TextStyle(color: Colors.white,fontWeight: FontWeight.bold, fontSize: 18)),
-                        )
-                      ],
-                    ),
+                              color: Color(0xff95DB42),
+                              borderRadius: BorderRadius.only(
+                                  topLeft: Radius.circular(15),
+                                  topRight: Radius.circular(15),
+                                  bottomLeft: Radius.circular(15),
+                                  bottomRight: Radius.circular(15)),
+                              boxShadow: [
+                                BoxShadow(
+                                    color: Color.fromARGB(255, 23, 104, 25)
+                                        .withOpacity(0.7),
+                                    blurRadius: 8.0,
+                                    spreadRadius: 2.0,
+                                    offset: Offset(
+                                      1.0,
+                                      4.0,
+                                    ),
+                                    blurStyle: BlurStyle.inner)
+                              ],
+                              border: Border.all(
+                                  color: Color.fromARGB(255, 172, 233, 98),
+                                  style: BorderStyle.solid,
+                                  strokeAlign: StrokeAlign.inside,
+                                  width: 2)),
+                          child: Text(gameList[index],
+                              style: TextStyle(
+                                  color: Colors.white,
+                                  fontWeight: FontWeight.bold,
+                                  fontSize: 18)),
+                        ),
+                      )
+                    ],
                   ),
                 );
               },
             ),
           ),
           Container(
-            alignment: Alignment.bottomCenter,
-           // color: Colors.black,
-            margin: EdgeInsets.only(left: 180),
-            height: 244.5,
-            child: Image.asset("assets/einstein_2.png", width: 310,))
+              alignment: Alignment.bottomCenter,
+              // color: Colors.black,
+              margin: EdgeInsets.only(left: 180),
+              height: 244.5,
+              child: Image.asset(
+                "assets/einstein_2.png",
+                width: 310,
+              ))
         ],
       ),
     );
