@@ -29,45 +29,68 @@ class _CalculatorGameScreenState extends State<CalculatorGameScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Color(0xff9FF4FE),
-      appBar: AppBar(
-        backgroundColor: Color(0xff9FF4FE),
-        //elevation: 0,
-        leading: IconButton(
-            onPressed: () {
-              Navigator.pop(context, true);
-            },
-            icon: Image.asset(
-              "assets/arrow-left.png",
-              width: 32,
-            )),
-        actions: [
-          IconButton(
-              onPressed: () {
-                setState(() {
-                  visibility = true;
-                });
-              },
-              icon: Icon(
-                Icons.pause,
-                size: 28,
-              ),
-              color: Colors.orangeAccent)
-        ],
-        title: Row(
-          children: [
-            Container(
-              margin: EdgeInsets.only(left: 110),
-              child: Image.asset("assets/champion.png"),
-              width: 25,
-            ),
-            Text("")
-          ],
-        ),
-      ),
       body: Stack(
         children: [
           Column(
             children: [
+              Stack(
+                children: [
+                  Container(
+                    margin: EdgeInsets.only(top: 24),
+                    width: double.infinity,
+                    height: 50,
+                    decoration: BoxDecoration(
+                      color: Color(0xff9FF4FE),
+                      border: Border.all(color: Color(0xff9FF4FE)),
+                    ),
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: [
+                        IconButton(
+                            onPressed: () {
+                              Navigator.pop(context, true);
+                            },
+                            icon: Image.asset(
+                              "assets/arrow-left.png",
+                              width: 30,
+                            )),
+                        Row(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: [
+                            Image.asset(
+                              "assets/champion.png",
+                              width: 30,
+                            ),
+                            Text("")
+                          ],
+                        ),
+                        IconButton(
+                            onPressed: () {
+                              setState(() {
+                                visibility = true;
+                              });
+                            },
+                            icon: Icon(
+                              Icons.pause,
+                              size: 28,
+                            ),
+                            color: Colors.orangeAccent)
+                      ],
+                    ),
+                  ),
+                  Stack(
+                    children: [Container(
+                      margin: EdgeInsets.only(top: 70),
+                      width: double.infinity,
+                      height: 5,
+                      color: Color.fromARGB(255, 47, 106, 202).withOpacity(0.8),
+                    ), Container(
+                      margin: EdgeInsets.only(top: 70),
+                      width: 350,
+                      height: 5, color: Colors.white,)],
+                  ),
+                ],
+              ),
               Container(
                 margin: EdgeInsets.only(top: 10),
                 //color: Colors.red,
@@ -89,25 +112,98 @@ class _CalculatorGameScreenState extends State<CalculatorGameScreen> {
                     IconButton(
                         onPressed: () {
                           showModalBottomSheet<void>(
+                            shape: RoundedRectangleBorder(
+                                borderRadius: BorderRadius.only(
+                                    topLeft: Radius.circular(40),
+                                    topRight: Radius.circular(40))),
+                            backgroundColor: Color(0xff9FF4FE).withOpacity(0.8),
                             context: context,
                             builder: (BuildContext context) {
                               return Container(
-                                height: 300,
-                                color: Color.fromARGB(255, 173, 173, 173),
+                                height: 350,
                                 child: Center(
                                   child: Column(
                                     mainAxisAlignment: MainAxisAlignment.center,
                                     mainAxisSize: MainAxisSize.min,
                                     children: <Widget>[
-                                      const Text('Modal BottomSheet'),
+                                      const Text(
+                                        'Square Root',
+                                        style: TextStyle(
+                                            color: Colors.white,
+                                            fontWeight: FontWeight.bold,
+                                            fontSize: 15),
+                                      ),
                                       Container(
-                                        child: ElevatedButton(
-                                          style: ElevatedButton.styleFrom(
-                                            primary: Colors.lightGreen,
+                                        margin: EdgeInsets.only(top: 10),
+                                        width: 300,
+                                        height: 180,
+                                        decoration: BoxDecoration(
+                                            image: DecorationImage(
+                                              fit: BoxFit.cover,
+                                              image: AssetImage(
+                                                  "assets/calculator-intro.gif"),
+                                            ),
+                                            borderRadius:
+                                                BorderRadius.circular(18)),
+                                      ),
+                                      Container(
+                                          margin: EdgeInsets.only(top: 5),
+                                          child: Text(
+                                            "square root the given number",
+                                            style: TextStyle(
+                                                color: Colors.grey.shade500,
+                                                fontSize: 11,
+                                                fontWeight: FontWeight.w500),
+                                          )),
+                                      Container(
+                                        margin: EdgeInsets.only(top: 15),
+                                        child: Text(
+                                          "1.0 for correct answer",
+                                          style: TextStyle(
+                                              color: Colors.white70,
+                                              fontSize: 12,
+                                              fontWeight: FontWeight.w600),
+                                        ),
+                                      ),
+                                      Container(
+                                        margin: EdgeInsets.only(top: 5),
+                                        child: Text(
+                                          "-1.0 for wrong answer",
+                                          style: TextStyle(
+                                              color: Colors.white70,
+                                              fontSize: 12,
+                                              fontWeight: FontWeight.w600),
+                                        ),
+                                      ),
+                                      GestureDetector(
+                                        onTap: () => Navigator.pop(context),
+                                        child: Container(
+                                          margin: EdgeInsets.only(top: 10),
+                                          decoration: BoxDecoration(
+                                            color: Color(0xff74C90F),
+                                            borderRadius:
+                                                BorderRadius.circular(20),
+                                            boxShadow: [
+                                              BoxShadow(
+                                                  color: Color(0xff74C90F),
+                                                  blurRadius: 5.0,
+                                                  spreadRadius: 3.0,
+                                                  offset: Offset(
+                                                    1.0,
+                                                    1.0,
+                                                  ),
+                                                  blurStyle: BlurStyle.inner)
+                                            ],
                                           ),
-                                          child: const Text('GOT IT!'),
-                                          onPressed: () =>
-                                              Navigator.pop(context),
+                                          alignment: Alignment.center,
+                                          width: 80,
+                                          height: 40,
+                                          child: const Text(
+                                            'GOT IT!',
+                                            style: TextStyle(
+                                                color: Colors.white,
+                                                fontWeight: FontWeight.bold),
+                                          ),
                                         ),
                                       ),
                                     ],
@@ -187,7 +283,6 @@ class _CalculatorGameScreenState extends State<CalculatorGameScreen> {
                       padding: EdgeInsets.only(right: 5, left: 15, top: 15),
                       child: Image.asset(
                         numberList[index],
-                        color: index == 9 ? Colors.orange : null,
                         width: 45,
                       ),
                       decoration: BoxDecoration(
@@ -216,7 +311,7 @@ class _CalculatorGameScreenState extends State<CalculatorGameScreen> {
                     crossAxisCount: 3,
                     childAspectRatio: 1.2,
                     mainAxisSpacing: 2,
-                    crossAxisSpacing: 1,
+                    crossAxisSpacing: 0.5,
                   ),
                 ),
               ),
