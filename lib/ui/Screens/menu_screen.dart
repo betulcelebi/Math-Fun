@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/src/widgets/container.dart';
 import 'package:flutter/src/widgets/framework.dart';
-import 'package:math_game_b/Screens/game_menu.dart';
+import 'package:math_game_b/ui/Screens/game_menu.dart';
 
 class MenuScreen extends StatefulWidget {
   const MenuScreen({super.key});
